@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finet</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+
+    {% if messages %}
+    {% for message in messages %}
+
+    <script>
+        alert("{{ message }}");
+    </script>
+
+    {% endfor %}
+    {% endif %}
+</head>
+
+<body>
+    <h1 id="finet_title">FINET</h1>
+
+    {% if user.is_authenticated %}
+    <a href="logout/"><button type="submit" class="sign" id="signup">logout</button></a>
+    <h2 class="text">want free wifi then you are at right place you won't have any problem related to internet issue
+        because we got your back now.As you can now use wifi anywhere anytime. want to know how to use our website then
+        just read some lines it's easy.......
+    </h2>
+    <h2 class="text">About:</h2>
+    <h2 class="text">&#x2022 basically our website maintains an ecosystem between wifi owners and wifi users as some of
+        our customers have wifi but they don't use it that much and want to earn money from their wifi router....so yes
+        this website is for you. just register your device in our platform and we will pay you as we also have some wifi
+        users who need internet but cannot afford a wifi or they do have a wifi connection but they can't use it in
+        their phone when they are out of their home so our users can reach the hotspot places near them and complete
+        their wifi related task. if the wifi user do not want to buy subscription then just watch some advertisement and
+        earn data coin then you can redeeme those data coins for data and use that data on our hotspot area </h2>
+    <h2 class="text">&#x2022 If you own a router and want to earn money from it then please register your device and be
+        a family of finet <a href="/own_a_router"><button class="but"> own a router and want to earn</button></a></h2>
+    <h2 class="text">&#x2022 if you don't have wifi connection at your home and still need internet to download larger
+        files or update your phone , downloading games offcourse it's not possible on your mobile daily data plan so
+        just go to your nearest hotspot service and download whatever you want <a href="/free_wifi"><button
+                class="but">&#x2022 looking for unlimited wifi</button></a></h2>
+    <h2 class="text">&#x2022 want to see our current hotspot area near you then click here<button class="but">hotspot
+            areas</button></h2>
+    <h3 class="text">&#x2022 interested in our subscription or premium plans: <a href="/subscription_plans"><button
+                class="but">subscription plans</butt /free_wifi </body>
+    {% else %}
+    <!-- signup -->
+    <div class="box">
+        <a href="#signupdiv"><button type="submit" class="sign" id="signup">signup</button></a>
+        <div class="overlay" id="signupdiv">
+            <div class="wrapper">
+                <a href="#" class="close">&times;</a>
+                <div class="content">
+                    <div class="container">
+                        <form action="signup/" method="post">
+                            <h2>SIGN UP!</h2>
+                            {% csrf_token %}
+                            <label for="username">username</label>
+                            <input name="username" id="username" type="text" placeholder="username should be unique" required>
+                            <label for="fname"> your NAME</label>
+                            <input name="fname" id="fname" type="text" placeholder="enter your name" required>
+                            <label for="email"> email address</label>
+                            <input name="email" id="email" type="email" placeholder="finet@email.com" required>
+                            <!-- <label for="phonenumber">phone number</label>
+                            <input id="phonenumber" class="phonenumber" type="text" placeholder="+91xxxxxxxxxx" required> -->
+                            <label for="pass1">password</label>
+                            <input name="pass1" id="pass1" type="password" placeholder="enter password" required>
+                            <label for="pass2">re-enter password</label>
+                            <input id="pass2" name="pass2" type="password" placeholder="re-enter your password"
+                                required>
+                            <input type="submit" value="submit">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- signin -->
+    <div class="box">
+        <a href="#signindiv"><button type="submit" class="sign" id="signin">signin</button></a>
+        <div class="overlay" id="signindiv">
+            <div class="wrapper">
+                <h2>LOGIN!</h2>
+                <a href="#" class="close">&times;</a>
+                <div class="content">
+                    <div class="container">
+                        <form action="login/" method="post">
+                            {% csrf_token %}
+                            <label for="username"> username</label>
+                            <input id="username" name="username" type="text" placeholder="finet@email.com">
+                            <label for="password"> password</label>
+                            <input name="password" id="password" type="text" placeholder="enter password">
+                            <input type="submit" value="submit">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <h2 class="text">want free wifi then you are at right place you won't have any problem related to internet issue
+        because we got your back now.As you can now use wifi anywhere anytime. want to know how to use our website then
+        just read some lines it's easy.......
+    </h2>
+    <h2 class="text">About:</h2>
+    <h2 class="text">&#x2022 basically our website maintains an ecosystem between wifi owners and wifi users as some of
+        our customers have wifi but they don't use it that much and want to earn money from their wifi router....so yes
+        this website is for you. just register your device in our platform and we will pay you as we also have some wifi
+        users who need internet but cannot afford a wifi or they do have a wifi connection but they can't use it in
+        their phone when they are out of their home so our users can reach the hotspot places near them and complete
+        their wifi related task. if the wifi user do not want to buy subscription then just watch some advertisement and
+        earn data coin then you can redeeme those data coins for data and use that data on our hotspot area </h2>
+    <h2 class="text">&#x2022 If you own a router and want to earn money from it then please register your device and be
+        a family of finet <a href="/own_a_router"><button class="but"> own a router and want to earn</button></a></h2>
+    <h2 class="text">&#x2022 if you don't have wifi connection at your home and still need internet to download larger
+        files or update your phone , downloading games offcourse it's not possible on your mobile daily data plan so
+        just go to your nearest hotspot service and download whatever you want <a href="/free_wifi"><button
+                class="but">&#x2022 looking for unlimited wifi</button></a></h2>
+    <h2 class="text">&#x2022 want to see our current hotspot area near you then click here<button class="but">hotspot
+            areas</button></h2>
+    <h3 class="text">&#x2022 interested in our subscription or premium plans: <a href="/subscription_plans"><button
+                class="but">subscription plans</butt /free_wifi </body>
+    {% endif %}
+                <!-- {% block start %}
+                {% if user.is_authenticated %}
+                <center>
+                    <h1>welcome back {{user.username}}!</h1>
+                </center>
+                {% else %}
+                <center>
+                    <h1>log in, plz . . .</h1>
+                </center>
+                {% endif %}
+                {% endblock %} -->
+
+</html>
