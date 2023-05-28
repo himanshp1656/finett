@@ -83,7 +83,7 @@ DATABASES = {
         'NAME': 'finet',
         'USER': 'root',
         'PASSWORD': '211656032',
-        'HOST': '.vercel.app',
+        'HOST': 'localhost',
         'PORT':'3306',
 
     }
